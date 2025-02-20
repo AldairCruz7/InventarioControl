@@ -1,6 +1,6 @@
-package com.inventariocontrol.repository;
+package com.inventariocontrol.Repository;
 
-import com.inventariocontrol.entities.UserEntity;
+import com.inventariocontrol.Entities.UserEntity;
 import org.springframework.data.repository.ListCrudRepository;
 
 import java.util.UUID;
