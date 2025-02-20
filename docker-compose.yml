@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    container_name: control_inventory_db
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=inventoryControl
+    ports:
+      - "5433:5432"
