@@ -3,11 +3,12 @@ package com.inventariocontrol.Entities;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.inventariocontrol.Utils.Views;
 import jakarta.persistence.*;
+
 import java.util.UUID;
 
 @Entity
-@Table(name = "departments", schema = "usuario")
-public class DepartmentEntity {
+@Table(name = "supplier", schema = "inventario")
+public class SupplierEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -15,15 +16,22 @@ public class DepartmentEntity {
     private UUID id;
 
     @JsonView(Views.Detailed.class)
+    @Column(nullable = false, length = 255)
     private String name;
 
     @JsonView(Views.Detailed.class)
-    private String description;
+    @Column(length = 20)
+    private String phone;
 
     @JsonView(Views.Detailed.class)
-    private Boolean active;
+    @Column(length = 255)
+    private String email;
 
-    // Getters y setters
+    @JsonView(Views.Detailed.class)
+    @Column(nullable = false)
+    private Boolean active = true;
+
+    // Getters y Setters
     public UUID getId() {
         return id;
     }
@@ -40,12 +48,20 @@ public class DepartmentEntity {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Boolean getActive() {

@@ -3,11 +3,12 @@ package com.inventariocontrol.Entities;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.inventariocontrol.Utils.Views;
 import jakarta.persistence.*;
+
 import java.util.UUID;
 
 @Entity
-@Table(name = "departments", schema = "usuario")
-public class DepartmentEntity {
+@Table(name = "warehouse", schema = "inventario")
+public class WarehouseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -15,15 +16,18 @@ public class DepartmentEntity {
     private UUID id;
 
     @JsonView(Views.Detailed.class)
+    @Column(nullable = false, length = 255)
     private String name;
 
     @JsonView(Views.Detailed.class)
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @JsonView(Views.Detailed.class)
-    private Boolean active;
+    @Column(nullable = false)
+    private Boolean active = true;
 
-    // Getters y setters
+    // Getters y Setters
     public UUID getId() {
         return id;
     }
