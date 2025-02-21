@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "usuario")
 public class UserEntity {
 
     @Id
@@ -29,11 +29,11 @@ public class UserEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "department_id", foreignKey = @ForeignKey(name = "fk_department_id"))
-    private DepartmentsEntity department;
+    private DepartmentEntity department;
 
     public UserEntity() {}
 
-    public UserEntity(String username, String role, String email, String cellphoneNumber, DepartmentsEntity department) {
+    public UserEntity(String username, String role, String email, String cellphoneNumber, DepartmentEntity department) {
         this.username = username;
         this.role = role;
         this.email = email;
@@ -82,11 +82,11 @@ public class UserEntity {
         this.cellphoneNumber = cellphoneNumber;
     }
 
-    public DepartmentsEntity getDepartment() {
+    public DepartmentEntity getDepartment() {
         return department;
     }
 
-    public void setDepartment(DepartmentsEntity department) {
+    public void setDepartment(DepartmentEntity department) {
         this.department = department;
     }
 }
