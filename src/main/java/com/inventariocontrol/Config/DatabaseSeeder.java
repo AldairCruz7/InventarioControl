@@ -1,4 +1,4 @@
-package com.inventariocontrol.config;
+package com.inventariocontrol.Config;
 
 import com.inventariocontrol.Entities.DepartmentEntity;
 import com.inventariocontrol.Entities.UserEntity;

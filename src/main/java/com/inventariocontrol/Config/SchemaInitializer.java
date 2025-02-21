@@ -1,4 +1,4 @@
-package com.inventariocontrol.config;
+package com.inventariocontrol.Config;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.jdbc.core.JdbcTemplate;
